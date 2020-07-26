@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <!-- HTML -->
+    <div id="app">
+      {{message}}
+      <button @click="changeMsg">Click</button>
+      {{updated}}
+    </div>
+
+    <div></div>
+    <!-- js code -->
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "Hello",
+          updated: "nah",
+        },
+        methods: {
+          changeMsg() {
+            this.message = "Shiri Shiri";
+          },
+        },
+        computed: {
+          reverseMsg() {
+            return this.message.split("").reverse().join("");
+          },
+        },
+        watch: {
+          message(newVal, oldVal) {
+            console.log(newVal);
+            console.log(oldVal);
+            return (this.updated = "yeah!");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

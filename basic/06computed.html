@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <!-- HTML -->
+    <div id="app">
+      {{number + 1 + name}}<br />
+
+      <button @click="changeMsg">change</button>
+      <br />{{ reverseMsg }} <br />{{ reverseMsg }} <br />{{ reverseMsg }}
+    </div>
+
+    <div></div>
+    <!-- js code -->
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          number: 1,
+          name: "shiri",
+          message: "12345",
+        },
+        methods: {
+          changeMsg() {
+            this.message = "ABCDE";
+          },
+        },
+        computed: {
+          reverseMsg() {
+            return this.message.split("").reverse().join("");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

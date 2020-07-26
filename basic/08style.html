@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .red {
+        color: red;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .my-class {
+        font-size: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML -->
+    <div id="app">
+      <div :class="{red: isRed, bold: isBold, 'my-class':isMine }">Hello</div>
+      <div :style="{color:red, fontSize:size}">Hello</div>
+      <button @click="update">Click</button>
+    </div>
+
+    <!-- js code -->
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          blue: "blue",
+          size: "3rem",
+
+          isRed: false,
+          isBold: false,
+          isMine: false,
+        },
+
+        methods: {
+          update() {
+            this.isRed = !this.isRed;
+            this.isBold = !this.isBold;
+            this.isMine = !this.isMine;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

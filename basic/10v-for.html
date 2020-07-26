@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .red {
+        color: red;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .my-class {
+        font-size: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML -->
+    <div id="app">
+      <div>{{people[0].name }}{{people[0].age}}</div>
+      <div>{{people[1].name }}{{people[1].age}}</div>
+      <div>{{people[2].name }}{{people[2].age}}</div>
+      <hr />
+      <!-- <div v-for="(person, index) in people" :key="person.name+'-'+person.age"> -->
+      <!-- <div v-for="(person, index) in people" :key="person.name"> -->
+      <div v-for="(person, index) in people" :key="id">
+        {{person.name }}{{person.age}} {{index}}
+      </div>
+    </div>
+
+    <!-- js code -->
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          people: [
+            { id: 1, name: "a", age: 20 },
+            { id: 2, name: "b", age: 22 },
+            { id: 3, name: "c", age: 21 },
+            { id: 4, name: "d", age: 25 },
+          ],
+        },
+        methods: {
+          increase() {
+            this.number++;
+          },
+          toggle() {
+            this.show = !this.show;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

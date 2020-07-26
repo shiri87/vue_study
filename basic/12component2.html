@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <!-- HTML -->
+    <div id="app">
+      <shiri-button></shiri-button>
+    </div>
+    <div id="app-1">
+      <shiri-button></shiri-button>
+    </div>
+    <!-- js code -->
+    <script>
+      Vue.component("my-name", {
+        template: "<div>my name is Shiri</div>",
+      });
+      const HelloWorld = {
+        template: `<h1>HELLO WORLD</h1>`,
+      };
+      const ShiriButton = {
+        components: { "hello-world": HelloWorld },
+        template: `   <div> <hello-world></hello-world>
+        {{name}}
+            <button @click="changeTXT">click</button><br/>
+            <my-name>
+           </div>`,
+        data() {
+          return {
+            name: "Shiri",
+          };
+        },
+        methods: {
+          changeTXT() {
+            this.name = "I love";
+          },
+        },
+      };
+
+      const app = new Vue({
+        el: "#app",
+        components: {
+          "shiri-button": ShiriButton,
+        },
+      });
+
+      const app1 = new Vue({
+        el: "#app-1",
+      });
+    </script>
+  </body>
+</html>

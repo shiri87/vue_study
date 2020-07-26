@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <!-- HTML -->
+    <div id="app">
+      <form v-on:submit.prevent="submit">
+        <input type="text" v-model="text" /><br />
+        {{text}}<br />
+        <button type="submit">submit</button>
+      </form>
+    </div>
+    <!-- js code -->
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: { text: "text" },
+        methods: {
+          submit() {
+            alert("submitted");
+            console.log("hello");
+          },
+          // updateText(event) {
+          //   console.log("event=>", event);
+          //   this.text = event.target.value;
+          // },
+        },
+      });
+    </script>
+  </body>
+</html>

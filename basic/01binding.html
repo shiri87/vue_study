@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <!-- HTML -->
+    <div id="app">
+      {{person.name}}{{person.age}}
+      <div>{{nextYear('Welcome')}}</div>
+      <input type="text" v-bind:value="inputData" />
+      <a :href="getHrefLink('course/4091/27401')">OPEN Tutorials</a>
+      <button v-on:click="alert">click me</button>
+    </div>
+    <!-- js code -->
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          person: {
+            name: "Shiri",
+            age: 34,
+          },
+          inputData: "MyVue.js",
+          link: "https://opentutorials.org",
+        },
+        methods: {
+          alert() {
+            alert("hello?");
+          },
+          getHrefLink(course) {
+            return this.link + course;
+          },
+          nextYear: function (greeting) {
+            return (
+              greeting +
+              this.person.name +
+              "is" +
+              (this.person.age + 1) +
+              "years old."
+            );
+          },
+          otherMethod: function () {
+            this.nextYear();
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
