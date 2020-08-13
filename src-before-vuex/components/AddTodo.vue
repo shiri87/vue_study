@@ -11,19 +11,14 @@
 <script>
 export default {
   data() {
-    return { todoText: "" };
+    return { todoText: "" }
   },
   methods: {
     addTodo(e) {
-      // this.$emit("add-todo", e.target.value)
-
-      //this.$store.commit("ADD_TODO", e.target.value) // mutation mode
-      this.$store.dispatch("addTodo", e.target.value); //action mode
-
-      this.todoText = "";
+      this.$emit("add-todo", e.target.value)
     },
   },
-};
+}
 </script>
 
 <style></style>

@@ -12,7 +12,7 @@
     <!--     
       :class="todo.checked ? 'text-muted':''"
       :style="todo.checked ?'text-decoration:line-through':''"
-    -->
+       -->
     <div class="btn btn-danger btn-sm" @click="clickDelete">Delete</div>
   </div>
 </template>
@@ -25,29 +25,17 @@ export default {
       required: true,
     },
   },
-
   methods: {
     toggleCheckbox(e) {
-      this.$store.dispatch("toggleTodo", {
-        //action mode
+      this.$emit("toggle-checkbox", {
+        // id: this.todo.id,
+        // checked: e.target.checked,
         id: this.todo.id,
         checked: e.target.checked,
       })
-      // this.$store.commit("TOGGLE_TODO", { //mutation mode
-
-      // this.$emit("toggle-checkbox", {
-      //   // id: this.todo.id,
-      //   // checked: e.target.checked,
-      //   id: this.todo.id,
-      //   checked: e.target.checked,
-      // })
     },
     clickDelete() {
-      // this.$store.commit("DELETE_TODO", this.todo.Id) //mutation mode
-
-      this.$store.dispatch("deleteTodo", this.todo.Id) //action mode
-
-      // this.$emit("click-delete", this.todo.id)
+      this.$emit("click-delete", this.todo.id)
     },
   },
 }
