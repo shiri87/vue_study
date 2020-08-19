@@ -18,7 +18,7 @@ export default {
       // this.$emit("add-todo", e.target.value)
 
       //this.$store.commit("ADD_TODO", e.target.value) // mutation mode
-      this.$store.dispatch("addTodo", e.target.value); //action mode
+      this.$store.dispatch("todo/addTodo", e.target.value); //action mode
 
       this.todoText = "";
     },
